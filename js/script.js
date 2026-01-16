@@ -148,9 +148,121 @@
     });
   };
 
+  const initGallery = () => {
+    const gallery = document.getElementById('gallery');
+    if (!gallery) return;
+
+    const imageLists = {
+      anime: [
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.00 (1).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.00.jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (1).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (2).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (3).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (4).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (5).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (6).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (7).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (8).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01 (9).jpeg",
+        "public/pics/anime/WhatsApp Image 2026-01-02 at 13.36.01.jpeg"
+      ],
+      base: [
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.57 (1).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.57 (2).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.57 (3).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.57 (4).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.57.jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (1).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (10).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (11).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (12).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (13).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (14).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (15).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (16).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (17).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (18).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (2).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (3).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (4).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (5).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (6).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (7).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (8).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58 (9).jpeg",
+        "public/pics/base/WhatsApp Image 2026-01-01 at 19.49.58.jpeg"
+      ],
+      crypto: [
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_25_06.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_26_30.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_27_57.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_32_39.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_34_17.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_35_35.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_36_57.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_37_57.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_52_21.png",
+        "public/pics/crypto/ChatGPT Image 10. sij 2026. 15_54_06.png",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (1).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (2).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (3).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (4).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (5).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (6).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (7).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (8).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11 (9).jpeg",
+        "public/pics/crypto/WhatsApp Image 2026-01-01 at 19.47.11.jpeg"
+      ],
+      fantasy: [
+        "public/pics/fantasy/a.png",
+        "public/pics/fantasy/b.png",
+        "public/pics/fantasy/c.png",
+        "public/pics/fantasy/d.png",
+        "public/pics/fantasy/e.png",
+        "public/pics/fantasy/f.png",
+        "public/pics/fantasy/g.png",
+        "public/pics/fantasy/h.png",
+        "public/pics/fantasy/i.png",
+        "public/pics/fantasy/j.png",
+        "public/pics/fantasy/k.png",
+        "public/pics/fantasy/l.png",
+        "public/pics/fantasy/o.png",
+        "public/pics/fantasy/p.png",
+        "public/pics/fantasy/r.png",
+        "public/pics/fantasy/s.png"
+      ]
+    };
+
+    const buttons = document.querySelectorAll('.map-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const map = btn.dataset.map;
+        gallery.innerHTML = '';
+        imageLists[map].forEach(src => {
+          const container = document.createElement('div');
+          container.className = 'image-container';
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = map + ' image';
+          const download = document.createElement('a');
+          download.href = src;
+          download.download = src.split('/').pop();
+          download.className = 'download-btn';
+          download.textContent = 'Download';
+          container.appendChild(img);
+          container.appendChild(download);
+          gallery.appendChild(container);
+        });
+      });
+    });
+  };
+
   document.addEventListener("DOMContentLoaded", () => {
     initFooterAndNav();
     initHeroCursor();
     initSprinkle();
+    initGallery();
   });
 })();
